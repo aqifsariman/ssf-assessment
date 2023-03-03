@@ -50,12 +50,10 @@ public class QuotationService {
             payload = resp.getBody();
             statusCode = resp.getStatusCode().value();
         } catch (HttpClientErrorException ex) {
-            System.out.println("ERROR HERE!" + ex);
             payload = ex.getResponseBodyAsString();
             statusCode = ex.getStatusCode().value();
             return null;
         } finally {
-            System.out.println("Json Array: " + jsonArr.toString());
             System.out.printf("URL: %s\n", url);
             System.out.printf("Payload: %s\n", payload);
             System.out.printf("Status Code: %s\n", statusCode);
@@ -82,43 +80,3 @@ public class QuotationService {
     }
 
 }
-// // Parse the result to weather
-
-// // Set the lat and lng
-// JsonObject jo = json.getJsonObject("coord");
-// float floatValue = ((float) jo.getJsonNumber("lon").doubleValue());
-// weather.setLongitude(floatValue);
-// floatValue = ((float) jo.getJsonNumber("lat").doubleValue());
-// weather.setLatitude(floatValue);
-
-// // Read weather
-// JsonArray weatherArr = json.getJsonArray("weather");
-// for (int i = 0; i < weatherArr.size(); i++) {
-// jo = weatherArr.getJsonObject(i);
-// String desc = "%s - %s".formatted(jo.getString("main"),
-// jo.getString("description"));
-// weather.addDescription(desc);
-// }
-
-// // Get the country
-// jo = json.getJsonObject("sys");
-// weather.setCountry(jo.getString("country").toLowerCase());
-// return Optional.of(weather);
-// }
-
-// public void postAsJson(String name, String email) {
-// JsonObject json = Json.createObjectBuilder()
-// .add("name", name)
-// .add("email", email)
-// .build();
-
-// RequestEntity<String> req = RequestEntity.post("http://httpbin.org/post")
-// .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)
-// .body(json.toString(), String.class);
-
-// RestTemplate restTemplate = new RestTemplate();
-// ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
-
-// String payload = resp.getBody();
-// System.out.printf("Response Payload: %s", payload);
-// }

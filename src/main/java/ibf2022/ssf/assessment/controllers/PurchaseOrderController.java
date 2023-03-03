@@ -45,7 +45,6 @@ public class PurchaseOrderController {
         cart = new Cart(item, count + Integer.parseInt(quantity));
 
         model.addAttribute("cartSession", cartSession);
-        System.out.printf(">>> Cart: %s\n", cartSession.toString());
 
         return "view1";
     }
@@ -56,7 +55,6 @@ public class PurchaseOrderController {
 
         if (null == cartSession || cartSession.isEmpty()) {
             // If cart is null, then new session
-            System.out.println("Empty here");
             return "view1";
         }
 
@@ -80,12 +78,7 @@ public class PurchaseOrderController {
         List<Integer> itemQuantity = new LinkedList<>();
         Float totalCost = 0.0f;
 
-        System.out.print("COST FIRST: $" + totalCost + "\n");
         for (Map.Entry<String, Integer> entry : cartSession.entrySet()) {
-            // System.out.println(entry.getKey().toString());
-            // System.out.println(quotation.getQuotation(entry.getKey().toString()));
-            // totalCost += quotation.getQuotation(entry.getKey().toString()) *
-            // entry.getValue();
             itemList.add(entry.getKey());
             itemQuantity.add(entry.getValue());
         }
@@ -93,8 +86,6 @@ public class PurchaseOrderController {
         for (int i = 0; i < itemList.size(); i++) {
             totalCost += quotation.getQuotation(itemList.get(i)) * itemQuantity.get(i);
         }
-
-        System.out.print("COST LAST: $" + totalCost);
 
         model.addAttribute("invoiceId", quotation.getQuoteId());
         model.addAttribute("name", name);
