@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,13 +42,20 @@ public class PurchaseOrderController {
         System.out.printf(">>> Cart: %s\n", cartSession.toString());
         System.out.println((Map<String, Integer>) session.getAttribute("cartSession"));
 
-        return "index";
+        return "view1";
     }
 
-    @PostMapping(path = "/next", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String purchaseOrder(@RequestBody MultiValueMap<String, String> form, Model model, HttpSession session) {
+    @GetMapping(path = "/shippingaddress")
+    public String purchaseOrder(HttpSession session) {
+        Map<String, Integer> cartSession = (Map<String, Integer>) session.getAttribute("cartSession");
 
-        return "shipping-address";
+        if (null == cartSession || cartSession.isEmpty()) {
+            // If cart is null, then new session
+            System.out.println("Empty here");
+            return "view1";
+        }
+
+        return "view2";
     }
 
 }

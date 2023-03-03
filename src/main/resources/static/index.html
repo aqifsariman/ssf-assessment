@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <h1>Shopping Cart</h1>
+    <form action="/add" method="POST">
+        <table>
+            <tr>
+                <td>Item:</td>
+                <td>
+                    <select name="item">
+                        <option value="Apple">Apple</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Bread">Bread</option>
+                        <option value="Cheese">Cheese</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Mineral Water">Mineral Water</option>
+                        <option value="Instant Noodles">Instant Noodles</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>
+                    <input min="1" type="number" name="quantity" size="4" placeholder="Quantity">
+                </td>
+            </tr>
+        </table>
+
+        <table border="1" style="margin-top: 2vh; margin-bottom: 2vh;">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <button type="submit">Add</button>
+            <button type="submit" formmethod="GET" formaction="/add/shippingaddress">Next</button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>
