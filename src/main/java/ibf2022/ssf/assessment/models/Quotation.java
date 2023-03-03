@@ -1,5 +1,4 @@
 package ibf2022.ssf.assessment.models;
-// TODO: Add your package here
 
 // DO NOT MODIFY THIS FILE
 
@@ -14,6 +13,7 @@ public class Quotation {
     public String getQuoteId() {
         return quoteId;
     }
+
     public void setQuoteId(String quoteId) {
         this.quoteId = quoteId;
     }
@@ -21,13 +21,16 @@ public class Quotation {
     public Map<String, Float> getQuotations() {
         return quotations;
     }
+
     public void setQuotations(Map<String, Float> quotations) {
         this.quotations = quotations;
     }
+
     public void addQuotation(String item, Float unitPrice) {
         this.quotations.put(item, unitPrice);
     }
+
     public Float getQuotation(String item) {
-        return this.quotations.getOrDefault((Object)item, -1000000f);
+        return this.quotations.getOrDefault((Object) item, -1000000f);
     }
 }
