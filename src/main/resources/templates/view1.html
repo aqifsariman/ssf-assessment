@@ -4,6 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 	<title>Shopping Cart</title>
 </head>
 
@@ -33,7 +36,7 @@
 			<tr>
 				<td>Quantity:</td>
 				<td>
-					<input min="1" type="number" name="quantity" size="4" placeholder="Quantity">
+					<input min="1" type="number" name="quantity" size="4" placeholder="Quantity" required>
 					<!-- <span class="error" data-th-if="${#fields.hasErrors('quantity')}"
 						data-th-errors="*{quantity}"></span> -->
 				</td>
@@ -55,12 +58,15 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<div>
-			<button type="submit">Add</button>
-			<button type="submit" formmethod="GET" formaction="/add/shippingaddress">Next</button>
-		</div>
+		<div class="d-flex justify-content-start">
+			<button type="submit" class="btn btn-outline-dark">Add</button>
 	</form>
+	<form action="/add">
+		<button class="btn btn-outline-dark ms-3" type="submit" formmethod="GET"
+			formaction="/add/shippingaddress">Next</button>
+	</form>
+	</div>
+
 
 
 </body>

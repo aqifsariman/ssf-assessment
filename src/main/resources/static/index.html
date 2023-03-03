@@ -29,7 +29,7 @@
             <tr>
                 <td>Quantity:</td>
                 <td>
-                    <input min="1" type="number" name="quantity" size="4" placeholder="Quantity">
+                    <input min="1" type="number" name="quantity" size="4" placeholder="Quantity" required>
                 </td>
             </tr>
         </table>
@@ -51,9 +51,9 @@
 
         <div>
             <button type="submit">Add</button>
-            <button type="submit" formmethod="GET" formaction="/add/shippingaddress">Next</button>
-        </div>
     </form>
+    <button type="submit" formmethod="GET" formaction="/add/shippingaddress">Next</button>
+    </div>
 
 
 </body>
